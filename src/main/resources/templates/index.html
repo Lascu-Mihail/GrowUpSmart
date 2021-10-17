@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <div th:replace="fragments/head-css :: head-css"/>
+
+    <title>Child App</title>
+</head>
+
+<body class="container-background">
+
+<header id="showcase">
+
+    <h1>Welcome Little One</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, neque voluptas? Aut in iste totam!</p>
+
+</header>
+
+<div class="btn-outline-primary">
+    <button type="button" class="btn btn-primary">Login</button>
+</div>
+
+<div th:replace="fragments/footer-js :: footer-js"/>
+
+</body>
+</html>
