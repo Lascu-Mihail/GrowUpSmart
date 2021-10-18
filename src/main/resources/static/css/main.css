@@ -1,48 +1,42 @@
-* {
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 15px;
-    color: #0c0c0c;
-    line-height: 1.6;
+:root{
+    --main-color:#f82249;
+}
+.theme-color{
+    color: var(--main-color);
 }
 
-.container-background {
-    background-size: cover;
-    background: url("../img/showcase.jpg") no-repeat;
-    background-position-x: center;
+button.btn{
+    background: none;
+    color:var(--main-color);
+    border: 2px solid var(--main-color) ;
+    border-radius: 35px;
+}
+button.btn:hover{
+    background: var(--main-color);
+    color:whitesmoke;
 }
 
-#showcase {
-    text-align: center;
-    padding: 10px 20px;
+.navbar ul li a{
+    padding:7px 15px;
+    margin: 0px 5px;
 }
 
-#showcase h1 {
-    font-size: 25px;
-    line-height: 50px;
-    font-style: oblique;
-    padding-top: 380px;
+.navbar ul li a.act, .navbar ul li a:hover{
+    background: var(--main-color);
+    color: white!important;
 }
 
-#showcase p {
-    font-style: oblique;
-    font-weight: bold;
+.main{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../img/showcase.jpg");
+    height: 100vh;
 }
-
-#showcase p {
-    font-size: 18px;
-}
-.container{
-    text-align: center;
-}
-
-
-
-
 

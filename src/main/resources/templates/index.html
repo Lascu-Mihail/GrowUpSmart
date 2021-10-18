@@ -8,24 +8,70 @@
 
     <div th:replace="fragments/head-css :: head-css"/>
 
+
     <title>Child App</title>
 </head>
 
-<body class="container-background">
+<body>
 
-<header id="showcase">
+<section class="main">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Be Awesome!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link act" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <h1>Welcome Little One</h1>
+<!--    here ends nav bar !-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-14 col-sm10 col-md-10 m-auto text-center text-white">
+                <h1 class="f3-bold display-2 mt-5">Welcome, Little One!</h1>
+                <hr class="mx-auto w-50 my-3">
+                <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, consequuntur cum cupiditate !</p>
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+  <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z"/>
+</svg>
+                </span>
+                <br/>
+                <button class="btn mt-3">Join Us!</button>
+    </div>
+        </div>
+            </div>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, neque voluptas? Aut in iste totam!</p>
+</section>
+
+
+
+
+
+
+
+<header >
+
 
 </header>
-<div class="container">
-    <button type="button" class="btn btn-outline-primary">Register</button>
-    <button type="button" class="btn btn-outline-primary">Help</button>
-    <button type="button" class="btn btn-outline-primary">Login</button>
-
-</div>
 
 
 <div th:replace="fragments/footer-js :: footer-js"/>
