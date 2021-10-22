@@ -17,6 +17,16 @@ public class Task {
     @ManyToOne
     private TaskCategory taskCategory;
 
+    public Task(String name, String description, TaskCategory taskCategory) {
+        this.name = name;
+        this.description = description;
+        this.taskCategory = taskCategory;
+    }
+
+    public Task() {
+
+    }
+
     public Long getId() {
         return id;
     }

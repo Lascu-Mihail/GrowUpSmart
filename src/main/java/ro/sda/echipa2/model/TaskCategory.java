@@ -1,6 +1,7 @@
 package ro.sda.echipa2.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="taskCategory")
@@ -13,6 +14,7 @@ public class TaskCategory {
     //Idea : A String type message!Let the kid know that he has completed the task.Now he should check the reward
     //area.Prices are waiting for him :D
     private String rewardValue; // maybe is better in Task class --> to ask trainer
+
 
     public Long getId() {
         return id;

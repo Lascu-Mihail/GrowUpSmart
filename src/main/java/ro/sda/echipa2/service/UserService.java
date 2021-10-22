@@ -4,6 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ro.sda.echipa2.dto.UserUpdate;
+import ro.sda.echipa2.exceptions.UserAlreadyExistsException;
 import ro.sda.echipa2.model.User;
 import ro.sda.echipa2.repository.UserRepository;
 
@@ -33,5 +36,38 @@ public class UserService {
     public User findById(Long id) {
         log.info("Finding by id");
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("user not found"));
+    }
+
+    public void updateUser(Long userId, UserUpdate userData) {
+        log.info("update user {}", userData);
+
+        userRepository.findById(userId)
+                .map(existingUser -> updateEntity(userData, existingUser))
+                .map(updatedUser -> userRepository.save(updatedUser))
+                .orElseThrow(() -> new RuntimeException("user not found"));
+    }
+
+    public User updateEntity(UserUpdate userData, User existingUser) {
+        existingUser.setName(userData.getName());
+        existingUser.setPassword(userData.getPassword());
+        return existingUser;
+    }
+
+    public void updateNewUser(User user) {
+        log.info("update user {}", user);
+
+        String name = user.getName();
+        userRepository.findByNameIgnoreCase(name).filter(existingUser -> existingUser.getId().equals(user.getId()))
+                .map(existingUser -> userRepository.save(user))
+                .orElseThrow(() -> {
+                    log.error("user with name {} already exists", name);
+                    throw new UserAlreadyExistsException("user with name " + name + " already exists");
+
+                });
+    }
+    @Transactional
+    public void deleteUser(Long id) {
+        log.info("deleting user by id");
+        userRepository.deleteById(id);
     }
 }
