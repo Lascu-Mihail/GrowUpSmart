@@ -1,9 +1,19 @@
 package ro.sda.echipa2.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import ro.sda.echipa2.service.TaskService;
 
+
+@Slf4j
 public class TaskController {
-    private static Logger log = LoggerFactory.getLogger(TaskController.class);
+
+    @Autowired
+    TaskService taskService;
+    public String showTasks(Model model){
+        model.addAttribute("tasks", taskService.findAll());
+        return "tasks";
+    }
 
 }

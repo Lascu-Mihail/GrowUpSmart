@@ -57,7 +57,7 @@ public class UserService {
         log.info("update user {}", user);
 
         String email = user.getEmail();
-        userRepository.findByNameIgnoreCase(email).filter(existingUser -> existingUser.getId().equals(user.getId()))
+        userRepository.findUserByEmail(email).filter(existingUser -> existingUser.getId().equals(user.getId()))
                 .map(existingUser -> userRepository.save(user))
                 .orElseThrow(() -> {
                     log.error("user with email {} already exists", email);
