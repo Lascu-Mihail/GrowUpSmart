@@ -48,7 +48,7 @@ public class UserService {
     }
 
     public User updateEntity(UserUpdate userData, User existingUser) {
-        existingUser.setName(userData.getName());
+        existingUser.setEmail(userData.getEmail());
         existingUser.setPassword(userData.getPassword());
         return existingUser;
     }
@@ -56,12 +56,12 @@ public class UserService {
     public void updateNewUser(User user) {
         log.info("update user {}", user);
 
-        String name = user.getName();
-        userRepository.findByNameIgnoreCase(name).filter(existingUser -> existingUser.getId().equals(user.getId()))
+        String email = user.getEmail();
+        userRepository.findByNameIgnoreCase(email).filter(existingUser -> existingUser.getId().equals(user.getId()))
                 .map(existingUser -> userRepository.save(user))
                 .orElseThrow(() -> {
-                    log.error("user with name {} already exists", name);
-                    throw new UserAlreadyExistsException("user with name " + name + " already exists");
+                    log.error("user with email {} already exists", email);
+                    throw new UserAlreadyExistsException("user with name " + email + " already exists");
 
                 });
     }
