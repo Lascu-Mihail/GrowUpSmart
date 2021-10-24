@@ -27,6 +27,7 @@ public class Task {
 
     }
 
+
     public Long getId() {
         return id;
     }
@@ -82,4 +83,9 @@ public class Task {
     public void setTaskCategory(TaskCategory taskCategory) {
         this.taskCategory = taskCategory;
     }
+
+//    public String toString(){
+//        return "Task{" + "name=" + name + ", description=" + description + "" +
+//                ", creationDate=" + creationDate + "endDate=" + endDate + "successDate=" + successDate +'}';
+//    }
 }
