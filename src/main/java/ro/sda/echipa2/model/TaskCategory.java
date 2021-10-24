@@ -1,10 +1,9 @@
 package ro.sda.echipa2.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name="taskCategory")
+@Table(name = "taskCategory")
 public class TaskCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +14,13 @@ public class TaskCategory {
     //area.Prices are waiting for him :D
     private String rewardValue; // maybe is better in Task class --> to ask trainer
 
+    public TaskCategory() {
+    }
+
+    public TaskCategory(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;

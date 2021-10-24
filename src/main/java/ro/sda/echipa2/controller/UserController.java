@@ -14,13 +14,11 @@ import ro.sda.echipa2.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
 public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
 
