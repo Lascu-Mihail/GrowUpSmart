@@ -2,24 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
     <link th:href="@{webjars/font-awesome/5.15.4/css/all.min.css}" th:rel="stylesheet"/>
-    <link href="/css/tasks.css rel=stylesheet">
+
+    <link href="/css/tasks.css" rel="stylesheet">
     <title>Tasks</title>
 </head>
 
 <body>
 
-<div class="row d-flex justify-content-center container">
-    <div class="col-md-8">
-        <div class="card-hover-shadow-2x mb-3 card">
+<div class="row justify-content-sm container-task">
+    <div class="col-md-4">
+        <div class="card-hover-shadow-2x mb-5 card">
             <div class="card-header-tab card-header">
-                <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i class="fa fa-tasks"></i>&nbsp;Task Lists</div>
+                <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
+                        class="fa fa-tasks"></i>Task Lists</div>
             </div>
             <div class="scroll-area-sm">
                 <perfect-scrollbar class="ps-show-limits">
@@ -30,14 +32,21 @@
                                     <div class="todo-indicator bg-warning"></div>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
-                                            <div class="widget-content-left ">
-                                                <div class="custom-checkbox custom-control"> <input class="custom-control-input" id="exampleCustomCheckbox12" type="checkbox"><label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label> </div>
+                                            <div class="widget-content-left mr-2">
+                                                <div class="custom-checkbox custom-control"><input class="custom-control-input" id="exampleCustomCheckbox12" type="checkbox">
+                                                    <label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label></div>
                                             </div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading" th:text="${task.name}"></div>
                                                 <div class="widget-subheading"><i th:text="${task.description}"></i></div>
                                             </div>
-                                            <div class="widget-content-"> <button th:action="" class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                                            <div class="widget-content-right">
+                                                <button th:action="tasks"
+                                                        class="border-0 btn-transition btn btn-outline-success"><i
+                                                        class="fa fa-check"></i></button>
+                                                <button class="border-0 btn-transition btn btn-outline-danger"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -46,12 +55,46 @@
                     </div>
                 </perfect-scrollbar>
             </div>
-            <div class="d-block text-right card-footer"><button class="mr-2 btn btn-link btn-sm">Cancel</button><button class="btn btn-primary">Add Task</button></div>
+            <div class="d-block text-right card-footer">
+                <button class="mr-2 btn btn-link btn-sm">Cancel</button>
+                <button class="btn btn-primary">Add Task</button>
+            </div>
         </div>
     </div>
 </div>
 
+<section class="main">
+    <<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Be Awesome!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
 </body>
+
+<header>
+
+</header>
 
 
 </html>

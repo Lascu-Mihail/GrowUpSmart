@@ -96,8 +96,6 @@
             <version>${webjars-locator.version}</version>
         </dependency>
 
-
-
     </dependencies>
 
     <build>
