@@ -89,8 +89,8 @@ public class Task {
         this.taskCategory = taskCategory;
     }
 
-//    public String toString(){
-//        return "Task{" + "name=" + name + ", description=" + description + "" +
-//                ", creationDate=" + creationDate + "endDate=" + endDate + "successDate=" + successDate +'}';
-//    }
+    public String toString(){
+        return "Task{" + "name=" + name + ", description=" + description + "" +
+                ", creationDate=" + creationDate + "endDate=" + endDate + "successDate=" + successDate +'}';
+    }
 }

@@ -58,4 +58,12 @@ public class TaskController {
        taskService.deleteTask(id);
        return "redirect:/tasks";
     }
+
+    @GetMapping("/tasks/accept/{id}")
+    public String acceptTask(@PathVariable("id") long taskId, Model model){
+       //TODO implement accept task logic
+       Task acceptedTask  = taskService.findById(taskId);
+       log.info("Accepted task " +  acceptedTask);
+        return "redirect:/tasks";
+    }
 }
