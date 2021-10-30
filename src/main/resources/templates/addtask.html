@@ -9,15 +9,15 @@
 <div align="center">
     <h1>Create new task</h1>
     <div>
-        <form method="post" th:action="@{/task/add}" th:object="${tasks}">
+        <form method="post" th:action="@{/tasks/add}" th:object="${taskForm}">
 
             <div>
                 <label for="name">Name</label>
                 <input id="name" th:field="*{name}" type="text">
             </div>
             <div>
-                <label for="taskDescription">TaskDescription</label>
-                <input id="taskDescription" th:field="*{taskDescription}" type="text">
+                <label for="description">TaskDescription</label>
+                <input id="description" th:field="*{description}" type="text">
             </div>
             <div>
                 <label for="creationDate">creationDate</label>
@@ -31,10 +31,10 @@
                 <label for="successDate">successDate</label>
                 <input id="successDate" th:field="*{successDate}" type="text">
             </div>
-            <div>
-                <label for="taskCategory">successDate</label>
-                <input id="taskCategory" th:field="*{taskCategory}" type="text">
-            </div>
+<!--            <div>-->
+<!--                <label for="taskCategory">successDate</label>-->
+<!--                <input id="taskCategory" th:field="*{taskCategory}" type="text">-->
+<!--            </div>-->
 
             <div>
                 <a th:href="@{/tasks}">

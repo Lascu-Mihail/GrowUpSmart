@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name="taskKidsUnion")
 public class TaskKidsUnion {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToMany
     private List<Task> tasks = new ArrayList<>();

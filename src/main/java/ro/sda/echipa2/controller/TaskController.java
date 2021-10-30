@@ -4,7 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+import ro.sda.echipa2.model.Task;
 import ro.sda.echipa2.service.TaskService;
 
 
@@ -12,15 +13,36 @@ import ro.sda.echipa2.service.TaskService;
 @Controller
 public class TaskController {
 
-    @Autowired
-    TaskService taskService;
+
+   private final TaskService taskService;
+
+   @Autowired
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
     @GetMapping("/tasks")
-    public String showTasks(Model model){
+    public String showTasks(Model model) {
         model.addAttribute("tasks", taskService.findAll());
         return "tasks";
     }
+    @GetMapping("/tasks/add")
+    public String showAddFrom(Model model) {
+        Task newTask= new Task();
+        model.addAttribute("taskForm", newTask);
+        return "addtask";
+    }
 
+    @PostMapping("/tasks/add")
+    public String add(@ModelAttribute("taskForm") Task task) {
+        taskService.save(task);
+        return "redirect:/tasks";
+    }
 
+    @GetMapping("/tasks/edit")
+    public String showEditForm(Model model, @PathVariable Long id) {
 
-
+        model.addAttribute("tasks", taskService.findAll());
+        return "tasks/edit";
+    }
 }
