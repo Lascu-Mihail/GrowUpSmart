@@ -18,6 +18,7 @@
         <java.version>15</java.version>
         <bootstrap.version>5.1.1</bootstrap.version>
         <webjars-locator.version>0.42</webjars-locator.version>
+        <jquery.version>3.6.0</jquery.version>
         <font-awesome.version>5.15.4</font-awesome.version>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
@@ -94,6 +95,11 @@
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
             <version>${webjars-locator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>${jquery.version}</version>
         </dependency>
 
     </dependencies>

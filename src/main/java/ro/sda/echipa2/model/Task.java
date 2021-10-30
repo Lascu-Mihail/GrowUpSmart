@@ -1,5 +1,7 @@
 package ro.sda.echipa2.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,8 +13,11 @@ public class Task {
     private Long id;
     private String name;
     private String description;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date creationDate;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date endDate;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date successDate;
     @ManyToOne
     private TaskCategory taskCategory;
