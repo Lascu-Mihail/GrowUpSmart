@@ -3,19 +3,20 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <title>Edit Task</title>
+    <title>Edit product</title>
 </head>
 <body>
 <div align="center">
-    <h1>Edit Task</h1>
+    <h1>Edit product</h1>
 
     <div>
-        <form method="post" th:action="@{/tasks/edit}" th:object="${taskForm}">
+        <form method="post" th:action="@{/tasks/{id}/edit(id=${tasks.id})}" th:object="${tasks}">
 
             <div>
                 <label for="name">Name</label>
                 <input id="name" th:field="*{name}" type="text">
             </div>
+
             <div>
                 <label for="description">TaskDescription</label>
                 <input id="description" th:field="*{description}" type="text">
@@ -45,7 +46,6 @@
             </div>
         </form>
     </div>
-
 
 </div>
 </body>

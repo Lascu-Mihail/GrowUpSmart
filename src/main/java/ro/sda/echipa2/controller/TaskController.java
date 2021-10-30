@@ -41,15 +41,21 @@ public class TaskController {
         return "redirect:/tasks";
     }
 
-    @GetMapping("/tasks/edit")
-    public String showEditForm(Model model) {
-       model.addAttribute("tasks", taskService.findAll());
+    @GetMapping("/tasks/{id}/edit")
+    public String showEditForm(@PathVariable Long id ,Model model) {
+       model.addAttribute("tasks", taskService.findById(id));
         return "edit-task";
     }
 
-    @PostMapping("/task/edit")
-    public String edit(@ModelAttribute("taskForm") Task task) {
+    @PostMapping("/tasks/{id}/edit")
+    public String edit(@PathVariable Long id ,@ModelAttribute Task task) {
      taskService.updateNewTask(task);
      return "redirect:/tasks";
+    }
+
+    @GetMapping("/tasks/{id}/delete")
+    public String delete(@PathVariable long id){
+       taskService.deleteTask(id);
+       return "redirect:/tasks";
     }
 }

@@ -65,4 +65,9 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
+    public Task findById(Long id) {
+        log.info("finding by id");
+        return taskRepository.findById(id).
+                orElseThrow(() -> new RuntimeException("Task could not be found"));
+    }
 }
