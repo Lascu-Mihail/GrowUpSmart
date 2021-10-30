@@ -40,7 +40,6 @@ public class TaskService {
 
     public void updateTask(Long taskId, TaskUpdate taskData) {
         log.info("update task {}", taskData);
-
         taskRepository.findById(taskId)
                 .map(existingTask -> updateEntity(taskData, existingTask))
                 .map(updateTask -> taskRepository.save(updateTask))

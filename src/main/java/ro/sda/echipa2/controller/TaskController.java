@@ -26,6 +26,8 @@ public class TaskController {
         model.addAttribute("tasks", taskService.findAll());
         return "tasks";
     }
+
+
     @GetMapping("/tasks/add")
     public String showAddFrom(Model model) {
         Task newTask= new Task();
@@ -40,9 +42,14 @@ public class TaskController {
     }
 
     @GetMapping("/tasks/edit")
-    public String showEditForm(Model model, @PathVariable Long id) {
+    public String showEditForm(Model model) {
+       model.addAttribute("tasks", taskService.findAll());
+        return "edit-task";
+    }
 
-        model.addAttribute("tasks", taskService.findAll());
-        return "tasks/edit";
+    @PostMapping("/task/edit")
+    public String edit(@ModelAttribute("taskForm") Task task) {
+     taskService.updateNewTask(task);
+     return "redirect:/tasks";
     }
 }
