@@ -26,8 +26,8 @@ button.btn:hover{
 }
 
 .navbar ul li a{
-    padding:7px 15px;
-    margin: 0px 5px;
+    padding:10px 15px;
+    margin: 2px 8px;
 }
 
 .navbar ul li a.act, .navbar ul li a:hover{
@@ -38,5 +38,11 @@ button.btn:hover{
 .main{
     background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../img/showcase.jpg");
     height: 100vh;
+}
+
+.navbar-brand{
+    color: var(--main-color);
+    border-bottom: 2px  solid var(--main-color);
+    margin-left: 30px;
 }
 

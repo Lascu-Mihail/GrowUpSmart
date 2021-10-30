@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Create new task</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create new task</h1>
+    <div>
+        <form method="post" th:action="@{/task/add}" th:object="${tasks}">
+
+            <div>
+                <label for="name">Name</label>
+                <input id="name" th:field="*{name}" type="text">
+            </div>
+            <div>
+                <label for="taskDescription">TaskDescription</label>
+                <input id="taskDescription" th:field="*{taskDescription}" type="text">
+            </div>
+            <div>
+                <label for="creationDate">creationDate</label>
+                <input id="creationDate" th:field="*{creationDate}" type="text">
+            </div>
+            <div>
+                <label for="endDate">endDate</label>
+                <input id="endDate" th:field="*{endDate}" type="text">
+            </div>
+            <div>
+                <label for="successDate">successDate</label>
+                <input id="successDate" th:field="*{successDate}" type="text">
+            </div>
+            <div>
+                <label for="taskCategory">successDate</label>
+                <input id="taskCategory" th:field="*{taskCategory}" type="text">
+            </div>
+
+            <div>
+                <a th:href="@{/tasks}">
+                    <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
+                </a>
+                <button class="btn btn-primary" id="save" name="save" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+    <br/><br/>
+
+</div>
+</body>
+</html>
