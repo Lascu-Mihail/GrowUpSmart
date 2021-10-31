@@ -36,7 +36,7 @@ public class TaskController {
     }
 
     @PostMapping("/tasks/add")
-    public String add(@ModelAttribute("taskForm") Task task) {
+    public String add(@ModelAttribute("tasks") Task task) {
         taskService.save(task);
         return "redirect:/tasks";
     }
@@ -66,4 +66,6 @@ public class TaskController {
        log.info("Accepted task " +  acceptedTask);
         return "redirect:/tasks";
     }
+
+
 }

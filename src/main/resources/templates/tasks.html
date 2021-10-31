@@ -18,7 +18,8 @@
         <div class="card-hover-shadow-2x mb-3 card">
             <div class="card-header-tab card-header">
                 <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
-                        class="fa fa-tasks"></i>Task Lists</div>
+                        class="fa fa-tasks"></i>Task Lists
+                </div>
             </div>
             <div class="scroll-area-sm">
                 <perfect-scrollbar class="ps-show-limits">
@@ -30,18 +31,22 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-2">
-                                                <div class="custom-checkbox custom-control"><input class="custom-control-input" id="exampleCustomCheckbox12" type="checkbox">
-                                                    <label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label></div>
+                                                <div class="custom-checkbox custom-control"><input
+                                                        class="custom-control-input" id="exampleCustomCheckbox12"
+                                                        type="checkbox">
+                                                    <label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label>
+                                                </div>
                                             </div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading" th:text="${task.name}"></div>
-                                                <div class="widget-subheading"><i th:text="${task.description}"></i></div>
+                                                <div class="widget-subheading"><i th:text="${task.description}"></i>
+                                                </div>
                                             </div>
                                             <div class="widget-content-right">
                                                 <a th:href="@{/tasks/{id}/edit(id=${task.id})}" class="border-0 btn-transition btn btn-outline-danger"><i
                                                         class="fa fa-edit"></i></a>
                                                 <a th:href="@{/tasks/accept/{id}(id=${task.id})}"
-                                                        class="border-0 btn-transition btn btn-outline-success"><i
+                                                   class="border-0 btn-transition btn btn-outline-success"><i
                                                         class="fa fa-check"></i></a>
                                                 <a th:href="@{/tasks/accept/{id}(id=${task.id})}" class="border-0 btn-transition btn btn-outline-danger"><i
                                                         class="fa fa-trash"></i></a>
@@ -55,7 +60,9 @@
                 </perfect-scrollbar>
             </div>
             <div class="d-block text-right card-footer">
-                <button class="mr-2 btn btn-link btn-sm">Cancel</button>
+                <a th:href="@{/}">
+                    <button class="mr-2 btn btn-link btn-sm">Cancel</button>
+                </a>
                 <a class="btn btn-primary" th:href="@{/tasks/add}">Add Task</a>
             </div>
         </div>
@@ -66,14 +73,15 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Be Awesome!</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link act" aria-current="page" href="#">Home</a>
+                        <a class="nav-link act" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
