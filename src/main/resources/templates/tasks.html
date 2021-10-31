@@ -38,11 +38,13 @@
                                                 <div class="widget-subheading"><i th:text="${task.description}"></i></div>
                                             </div>
                                             <div class="widget-content-right">
+                                                <a th:href="@{/tasks/{id}/edit(id=${task.id})}" class="border-0 btn-transition btn btn-outline-danger"><i
+                                                        class="fa fa-edit"></i></a>
                                                 <a th:href="@{/tasks/accept/{id}(id=${task.id})}"
                                                         class="border-0 btn-transition btn btn-outline-success"><i
                                                         class="fa fa-check"></i></a>
-                                                <button class="border-0 btn-transition btn btn-outline-danger"><i
-                                                        class="fa fa-trash"></i></button>
+                                                <a th:href="@{/tasks/accept/{id}(id=${task.id})}" class="border-0 btn-transition btn btn-outline-danger"><i
+                                                        class="fa fa-trash"></i></a>
                                             </div>
                                         </div>
                                     </div>

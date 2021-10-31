@@ -43,8 +43,8 @@ public class TaskController {
 
     @GetMapping("/tasks/{id}/edit")
     public String showEditForm(@PathVariable Long id ,Model model) {
-       model.addAttribute("tasks", taskService.findById(id));
-        return "edit-task";
+       model.addAttribute("taskForm", taskService.findById(id));
+        return "addtask";
     }
 
     @PostMapping("/tasks/{id}/edit")

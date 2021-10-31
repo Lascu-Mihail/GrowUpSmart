@@ -13,16 +13,15 @@
     <h1>Create new task</h1>
     <div>
         <form method="post" th:action="@{/tasks/add}" th:object="${taskForm}">
-
-            <div>
+            <div class="form-group">
                 <label for="name">Name</label>
                 <input id="name" th:field="*{name}" type="text">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="description">TaskDescription</label>
                 <input id="description" th:field="*{description}" type="text">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="creationDate">creationDate</label>
                 <!--                <input id="creationDate" th:field="*{creationDate}" type="text">-->
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -33,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="endDate">endDate</label>
 <!--                <input id="endDate" th:field="*{endDate}" type="text">-->
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
@@ -44,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="successDate">successDate</label>
 <!--                <input id="successDate" th:field="*{successDate}" type="text">-->
                 <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
@@ -55,12 +54,7 @@
                     </div>
                 </div>
             </div>
-<!--            <div>-->
-<!--                <label for="taskCategory">successDate</label>-->
-<!--                <input id="taskCategory" th:field="*{taskCategory}" type="text">-->
-<!--            </div>-->
-
-            <div>
+            <div class="form-group">
                 <a th:href="@{/tasks}">
                     <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
                 </a>
