@@ -29,12 +29,12 @@ public class RegistrationController {
         model.addAttribute("user", new User());
         return "registration";
     }
-    @PostMapping("createUser")
+    @PostMapping("signUpUser")
     public String createUser(@Valid User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "createUser";
+            return "signUpUser";
         }
-        userService.createUser(user);
+        userService.signUpUser(user);
         return "redirect:/";
     }
 }

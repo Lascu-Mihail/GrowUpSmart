@@ -19,7 +19,7 @@ public class RegistrationService {
         if (!isValidEmail) {
             throw new IllegalStateException("email not valid");
         }
-         userService.createUser(
+         userService.signUpUser(
                 new User(request.getFirstName(),
                         request.getLastName(),
                         request.getEmail(),
