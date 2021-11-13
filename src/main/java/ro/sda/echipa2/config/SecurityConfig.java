@@ -38,9 +38,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login","/register","/createUser").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin(form -> form.loginPage("/login").permitAll());
+                .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/tasks")
+                    .permitAll();
+//                .formLogin(form -> form.loginPage("/login").permitAll());
 
-
+;
 
         // custom form (nice to have)
 //        http.formLogin(form -> form.loginPage("/login").permitAll());

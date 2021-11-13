@@ -30,9 +30,9 @@ public class RegistrationController {
         return "registration";
     }
     @PostMapping("signUpUser")
-    public String createUser(@Valid User user, BindingResult result, Model model) {
+    public String signUpUser(@Valid User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "signUpUser";
+            return "signUpUSer";
         }
         userService.signUpUser(user);
         return "redirect:/";
