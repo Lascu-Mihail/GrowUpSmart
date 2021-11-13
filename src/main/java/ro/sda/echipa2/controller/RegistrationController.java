@@ -1,23 +1,40 @@
 package ro.sda.echipa2.controller;
 
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import ro.sda.echipa2.registration.RegistrationRequest;
-import ro.sda.echipa2.service.RegistrationService;
+import ro.sda.echipa2.model.User;
+import ro.sda.echipa2.repository.UserRepository;
+import ro.sda.echipa2.service.UserService;
+
+import javax.validation.Valid;
+
 
 @Controller
-@RequestMapping(path = "/registration")
-@AllArgsConstructor
 public class RegistrationController {
 
-    private RegistrationService registrationService;
+    private UserService userService;
+    private UserRepository userRepository;
 
-    @PostMapping("/")
-    public String register(@RequestBody RegistrationRequest request ){
-        return registrationService.register(request);
+    public RegistrationController(UserService userService, UserRepository userRepository) {
+        this.userService = userService;
+        this.userRepository = userRepository;
     }
 
+
+    @GetMapping("/registration")
+    public String registration(Model model) { // !!!!!!!!!
+        model.addAttribute("user", new User());
+        return "registration";
+    }
+    @PostMapping("createUser")
+    public String createUser(@Valid User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "createUser";
+        }
+        userService.createUser(user);
+        return "redirect:/";
+    }
 }
