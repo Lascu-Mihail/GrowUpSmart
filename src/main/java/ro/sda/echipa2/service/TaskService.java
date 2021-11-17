@@ -10,6 +10,8 @@ import ro.sda.echipa2.exceptions.TaskAlreadyExistsException;
 import ro.sda.echipa2.model.Task;
 import ro.sda.echipa2.repository.TaskRepository;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -57,6 +59,18 @@ public class TaskService {
                    log.error("task with name {} already exists",name);
                    throw new TaskAlreadyExistsException("task with name " + name + " already exists");
                 });
+    }
+//    public void taskCompleted(Long taskId,TaskUpdate taskData){
+//        log.info("task completed");
+//        if (taskData.getSuccessDate()<=taskData.getEndDate()){ !!!
+//        }
+//    }
+
+    public void taskExpired(Long taskId,TaskUpdate taskData){
+        log.info("task expired");
+        if (taskData.getEndDate()==taskData.getLocalDate()){
+            taskRepository.deleteTaskByEndDate(taskId);
+        }
     }
 
     @Transactional

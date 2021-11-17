@@ -76,6 +76,20 @@ public class User implements UserDetails {
         return enabled;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", userRole=" + userRole +
+                ", locked=" + locked +
+                ", enabled=" + enabled +
+                '}';
+    }
 }
 
 

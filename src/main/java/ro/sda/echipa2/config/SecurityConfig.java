@@ -1,8 +1,6 @@
 package ro.sda.echipa2.config;
 
 
-import lombok.AllArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,12 +11,14 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.CookieClearingLogoutHandler;
 import ro.sda.echipa2.service.UserService;
+
+import javax.servlet.http.Cookie;
 
 
 @Configuration
 @EnableWebSecurity
-
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
@@ -30,21 +30,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(daoAuthenticationProvider());
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        Cookie sessionCookie = new Cookie("JSESSIONID", null);
+        sessionCookie.setPath("/foo");
+        sessionCookie.setMaxAge(0);
+        CookieClearingLogoutHandler logoutHandler = new CookieClearingLogoutHandler(sessionCookie);
+
         http.authorizeRequests()
-                .antMatchers("/", "/registration/**").permitAll()
-                .antMatchers( "/css/**", "/js/**", "/img/**").permitAll()
-                .antMatchers("/login","/register","/createUser").permitAll()
+                .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                .antMatchers("/","/login", "/registration", "/about").permitAll()
                 .anyRequest().authenticated()
                 .and()
+                .csrf().disable()
                 .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/tasks")
-                    .permitAll();
-//                .formLogin(form -> form.loginPage("/login").permitAll());
+                .loginPage("/login")
+                .defaultSuccessUrl("/tasks")
+                .permitAll();
 
-;
+        http.logout()
+                .clearAuthentication(true)
+                .logoutSuccessUrl("/login")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
+                .permitAll();
+
 
         // custom form (nice to have)
 //        http.formLogin(form -> form.loginPage("/login").permitAll());
@@ -52,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider(){
+    public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(bCryptPasswordEncoder());
         provider.setUserDetailsService(userService);
@@ -65,9 +76,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/**", "/static/**", "/webjars/**");
     }
 
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth)
+            throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("user").password(bCryptPasswordEncoder().encode("password")).roles("USER")
+                .and()
+                .withUser("admin").password(bCryptPasswordEncoder().encode("admin")).roles("ADMIN");
+    }
+
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+
 }
+

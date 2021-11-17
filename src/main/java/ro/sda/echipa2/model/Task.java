@@ -1,5 +1,6 @@
 package ro.sda.echipa2.model;
 
+import lombok.Builder;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

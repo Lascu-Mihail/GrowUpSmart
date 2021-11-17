@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ro.sda.echipa2.dto.TaskUpdate;
 import ro.sda.echipa2.model.Task;
 import ro.sda.echipa2.service.TaskService;
 
@@ -36,20 +37,20 @@ public class TaskController {
     }
 
     @PostMapping("/tasks/add")
-    public String add(@ModelAttribute("tasks") Task task) {
+    public String add(@ModelAttribute("task") Task task) {
         taskService.save(task);
         return "redirect:/tasks";
     }
 
     @GetMapping("/tasks/{id}/edit")
     public String showEditForm(@PathVariable Long id ,Model model) {
-       model.addAttribute("taskForm", taskService.findById(id));
-        return "addtask";
+       model.addAttribute("task", taskService.findById(id));
+        return "edit-task";
     }
 
     @PostMapping("/tasks/{id}/edit")
-    public String edit(@PathVariable Long id ,@ModelAttribute Task task) {
-     taskService.updateNewTask(task);
+    public String edit(@PathVariable Long id ,@ModelAttribute("task") TaskUpdate task) {
+     taskService.updateTask(id,task);
      return "redirect:/tasks";
     }
 
@@ -65,6 +66,7 @@ public class TaskController {
        Task acceptedTask  = taskService.findById(taskId);
        log.info("Accepted task " +  acceptedTask);
         return "redirect:/tasks";
+
     }
 
 

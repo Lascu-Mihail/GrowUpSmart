@@ -9,4 +9,5 @@ public class Team2Application {
 		SpringApplication.run(Team2Application.class, args);
 	}
 
+
 }

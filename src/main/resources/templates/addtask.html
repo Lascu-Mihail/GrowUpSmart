@@ -12,7 +12,7 @@
 <div align="center">
     <h1>Create new task</h1>
     <div>
-        <form method="post" th:action="@{/tasks/add}" th:object="${taskForm}">
+        <form method="post" th:object="${taskForm}">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input id="name" th:field="*{name}" type="text">

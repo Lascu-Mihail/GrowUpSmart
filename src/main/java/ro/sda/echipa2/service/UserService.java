@@ -16,6 +16,7 @@ import ro.sda.echipa2.model.User;
 import ro.sda.echipa2.repository.UserRepository;
 
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -87,8 +88,8 @@ public class UserService implements UserDetailsService {
         user.setLastName(userDto.getLastName());
         user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         user.setEmail(userDto.getEmail());
+        user.setUsername(userDto.getEmail());
         user.setUserRole(UserRole.USER);
-
         return userRepository.save(user);
     }
 
