@@ -62,7 +62,7 @@ public class TaskService {
     }
 //    public void taskCompleted(Long taskId,TaskUpdate taskData){
 //        log.info("task completed");
-//        if (taskData.getSuccessDate()<=taskData.getEndDate()){ !!!
+//        if (taskData.getSuccessDate()<=taskData.getEn2dDate()){ !!!
 //        }
 //    }
 
