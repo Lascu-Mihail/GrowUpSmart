@@ -8,7 +8,7 @@
 }
 
 :root{
-    --main-color:#f82249;
+    --main-color: #f82249;
 }
 .theme-color{
     color: var(--main-color);

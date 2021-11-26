@@ -34,8 +34,10 @@ i {
     padding-bottom: 0px;
     padding-right: 0.625rem;
     height: 3.5rem;
-    background-color: #fff
+    background-color: #6cc9c9;
 }
+
+
 
 .widget-subheading {
     color: #858a8e;
@@ -72,12 +74,15 @@ i {
 }
 
 .text-capitalize {
-    text-transform: capitalize !important
+    text-transform: capitalize !important;
+    color: #111111;
 }
 
 .scroll-area-sm {
     height: 288px;
-    overflow-x: hidden
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+
 }
 
 .list-group-item {
