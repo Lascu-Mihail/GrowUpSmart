@@ -19,16 +19,16 @@ body {
 }
 .form-group{
 
-    color: #FF4500;
+    color: #ffffff;
     border-radius: 50px
 }
 
 :root{
-
     --main-color:#f82249;
 }
 
 .theme-color{
+
     color: var(--main-color);
 }
 
@@ -39,6 +39,7 @@ button.btn-primary:hover{
 }
 
 button.btn-primary{
+
     background: none;
     color:var(--main-color);
     border: 3px solid var(--main-color);
@@ -47,6 +48,7 @@ button.btn-primary{
 }
 
 button.btn-secondary{
+
     background: none;
     color:var(--main-color);
     border: 3px solid var(--main-color);
@@ -55,5 +57,6 @@ button.btn-secondary{
 
 button.btn-secondary:hover{
     background: var(--main-color);
-    color:whitesmoke;
+    color:whitesmoke;.
+
 }
