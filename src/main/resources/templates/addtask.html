@@ -4,24 +4,27 @@
 <head>
     <meta charset="utf-8"/>
     <title>Create new task</title>
+    <link href="/css/addtask.css" rel="stylesheet">
     <link th:rel="stylesheet" th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css} "/>
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/all.css} "/>
 </head>
 <body>
-<div align="center">
+<div th:align="center">
     <h1>Create new task</h1>
+    <div class="container-abt">
     <div>
         <form method="post" th:object="${taskForm}">
-            <div class="form-group">
+            <div class="form-group1">
                 <label for="name">Name</label>
                 <input id="name" th:field="*{name}" type="text">
             </div>
-            <div class="form-group">
-                <label for="description">TaskDescription</label>
+            <div class="form-group1">
+                <label for="description">Description</label>
                 <input id="description" th:field="*{description}" type="text">
             </div>
             <div class="form-group">
+                <div class=" col-md-4">
                 <label for="creationDate">creationDate</label>
                 <!--                <input id="creationDate" th:field="*{creationDate}" type="text">-->
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -31,8 +34,10 @@
                         <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
                     </div>
                 </div>
+                </div>
             </div>
             <div class="form-group">
+                <div class="col-md-4">
                 <label for="endDate">endDate</label>
 <!--                <input id="endDate" th:field="*{endDate}" type="text">-->
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
@@ -42,8 +47,10 @@
                         <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
                     </div>
                 </div>
+                </div>
             </div>
             <div class="form-group">
+                <div class="col-md-4">
                 <label for="successDate">successDate</label>
 <!--                <input id="successDate" th:field="*{successDate}" type="text">-->
                 <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
@@ -52,6 +59,7 @@
                     <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
                     </div>
+                </div>
                 </div>
             </div>
             <div class="form-group">
@@ -62,6 +70,7 @@
 
             </div>
         </form>
+    </div>
     </div>
     <br/><br/>
 
