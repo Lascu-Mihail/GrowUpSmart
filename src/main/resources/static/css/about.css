@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/about.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+
+}
+
+#about-section {
+    width:50vw;
+    margin: 50px auto auto;
+}
 
 *{
     font-family: 'Poppins', sans-serif;
@@ -51,16 +64,3 @@ button.btn:hover{
 }
 
 
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../img/about.jpg");
-    height: 100vh;
-    background-repeat: no-repeat;
-
-}
-
-#about-section {
-    width:50vw;
-    margin: 50px auto auto;
-}
