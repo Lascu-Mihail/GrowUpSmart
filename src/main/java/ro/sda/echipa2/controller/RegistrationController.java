@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ro.sda.echipa2.model.User;
 import ro.sda.echipa2.service.ConfirmationService;
 import ro.sda.echipa2.service.UserService;
@@ -39,9 +40,8 @@ public class RegistrationController {
     }
 
     @GetMapping(path = "/registration/confirm")
-    public String confirm(@RequestParam("token") String token){
+    public @ResponseBody String confirm(@RequestParam("token") String token){
         return confirmationService.confirmToken(token);
     }
-
 
 }
