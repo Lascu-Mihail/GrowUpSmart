@@ -94,7 +94,7 @@ public class UserService implements UserDetailsService {
         user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         user.setEmail(userDto.getEmail());
         user.setUsername(userDto.getEmail());
-        user.setUserRole(user.getUserRole());
+        user.setUserRole(UserRole.USER);
         userRepository.save(user);
 
         createToken(user);
